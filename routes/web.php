@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SchoolController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('index');
+// });
+Route::get('/', [SchoolController::class, 'index']);
+Route::get('/about', [SchoolController::class, 'about']);
+Route::get('/classes', [SchoolController::class, 'classes']);
+Route::get('/facility', [SchoolController::class, 'facility']);
+Route::get('/teacher', [SchoolController::class, 'teacher']);
+Route::get('/becometeacher', [SchoolController::class, 'becometeacher']);
+Route::get('/appointment', [SchoolController::class, 'appointment']);
+Route::get('/testimonial', [SchoolController::class, 'testimonial']);
+Route::get('/404', [SchoolController::class, 'error']);
+Route::get('/contact', [SchoolController::class, 'contact']);
