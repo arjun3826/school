@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\SchoolController;
 use Illuminate\Support\Facades\Route;
 
@@ -27,3 +28,10 @@ Route::get('/appointment', [SchoolController::class, 'appointment']);
 Route::get('/testimonial', [SchoolController::class, 'testimonial']);
 Route::get('/404', [SchoolController::class, 'error']);
 Route::get('/contact', [SchoolController::class, 'contact']);
+Route::get('/admin', [AuthController::class, 'login']);
+Route::post('/authentication', [AuthController::class, 'auth']);
+Route::get('/registered', function () {
+    return view('auth.registered');
+});
+Route::post('/registeredstore', [AuthController::class, 'registered']);
+Route::get('/desbord', [AuthController::class, 'home'])->name('home');
